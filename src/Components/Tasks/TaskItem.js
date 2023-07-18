@@ -3,8 +3,7 @@ import taskList from "./Tasks.module.css";
 function TaskItem(props) {
   return (
     <div>
-      <li className={taskList.item}> Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
-      <li className={taskList.item}> Lorem ipsum dolor sit amet consectetur.</li>
+      <li className={taskList.item}>{props.name}</li>
     </div>
   );
 }

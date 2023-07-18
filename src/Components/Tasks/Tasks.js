@@ -5,7 +5,9 @@ function Tasks(props) {
   return (
     <div className={taskList.wrapper}>
       <ul>
-        <TaskItem />
+        {props.fetchedData.map((item) => {
+          return <TaskItem key={item.id} name={item.name} />;
+        })}
       </ul>
     </div>
   );
