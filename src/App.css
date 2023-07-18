@@ -1,8 +1,8 @@
 .App {
-  width: 60rem;
-  height: 50rem;
-  background: var(--color-gray-4);
+  width: 50rem;
 
+  height: 50rem;
+  background: var(--color-gray-7);
   border-radius: 1.2rem;
   padding: 2rem;
   display: flex;
