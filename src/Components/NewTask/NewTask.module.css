@@ -7,12 +7,13 @@
   justify-content: center;
   margin-bottom: 2.4rem;
 }
+
 .button {
   position: absolute;
   right: 1rem;
   padding: 1rem 2rem;
   border-radius: 999px;
-  background-color: var(--color-gray-3);
+  background-color: var(--color-gray-4);
   color: white;
   border: none;
   outline: none;
@@ -22,7 +23,7 @@
 }
 
 .button:hover {
-  filter: brightness(120%);
+  background-color: var(--color-gray-2);
 }
 .input {
   height: 5.6rem;
@@ -34,7 +35,7 @@
   /* position: absolute; */
   font-size: 2.1rem;
   color: var(--color-gray-2);
-  background-color: var(--color-gray-6);
+  background-color: var(--color-gray-5);
 }
 .input::placeholder {
   color: var(--color-gray-4);

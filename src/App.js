@@ -8,13 +8,12 @@ import "./App.css";
 function App() {
   const [tasks, setTasks] = useState([]);
   const [getError, setGetError] = useState(null);
-  const [dependency, setDependency] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const fetchDataHandler = async () => {
     setIsLoading(true);
-    setError(false);
+    setError(null);
     try {
       const response = await fetch("https://codefrombasemenet-default-rtdb.europe-west1.firebasedatabase.app/newtask.json");
 
@@ -23,13 +22,13 @@ function App() {
       }
       setError(true);
       const data = await response.json();
-
+      //
       let loadedTask = [];
       for (const key in data) {
         loadedTask.push({ id: key, name: data[key].text });
       }
       setTasks(loadedTask);
-
+      //
       console.log(loadedTask);
     } catch (error) {
       setGetError(error.message);
@@ -39,17 +38,27 @@ function App() {
 
   useEffect(() => {
     fetchDataHandler();
-  }, [dependency]);
-  const updateState = () => {
-    setDependency((prev) => {
-      return prev + 1;
-    });
-  };
+  }, []);
+
+  let content;
+
+  if (tasks.length === 0) {
+    content = <p className="no-content">No content, please add something</p>;
+  }
+
+  if (isLoading) {
+    content = <h2 className="loading">Loading...</h2>;
+  }
+
+  if (getError) {
+    content = <h2 className="error">Something is wrong...</h2>;
+  }
 
   return (
     <div className="App">
-      <NewTask dependency={updateState} />
+      <NewTask onFetch={fetchDataHandler} />
       <Tasks fetchedData={tasks} onFetch={fetchDataHandler} />
+      {content}
     </div>
   );
 }

@@ -23,7 +23,6 @@ function NewTask(props) {
 
         const data = await response.json();
         const finalData = { id: data.name, text: newData };
-        console.log(finalData);
         props.dependency();
       } catch (error) {}
     }
@@ -33,7 +32,9 @@ function NewTask(props) {
   return (
     <form className={taskForm.wrapper} onSubmit={submitHandler}>
       <input className={taskForm.input} type="text" maxLength="47" placeholder="What do you want to remember?" ref={inputVal} />
-      <button className={taskForm.button}>Add</button>
+      <button className={taskForm.button} onClick={props.onFetch}>
+        Add
+      </button>
     </form>
   );
 }

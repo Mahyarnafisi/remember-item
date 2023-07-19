@@ -2,11 +2,23 @@
   width: 50rem;
 
   height: 50rem;
-  background: var(--color-gray-7);
+  background: var(--color-gray-6);
   border-radius: 1.2rem;
   padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
+}
+.no-content {
+  color: var(--color-gray-4);
+  font-size: 1.6rem;
+}
+
+.loading {
+  color: var(--color-gray-4);
+}
+
+.error {
+  color: var(--color-red);
 }
